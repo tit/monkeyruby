@@ -18,7 +18,7 @@ class Monkeyruby
     @file.write "# noinspection PyUnresolvedReferences\n"
     @file.write "from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice\n"
     @file.write "device = MonkeyRunner.waitForConnection()\n"
-    @file.write "device.startActivity(component='#{component}')\n"
+    @file.write "device.startActivity(component=\"#{component}\")\n"
     self.wait 5
     true
   end
@@ -28,7 +28,7 @@ class Monkeyruby
   # @param [String] type
   # @return [TrueClass]
   def touch(x, y, type = 'MonkeyDevice.DOWN_AND_UP')
-    @file.write "device.touch(#{x}, #{y}, #{type})\n"
+    @file.write "device.touch(#{x}, #{y}, \"#{type}\")\n"
     true
   end
 
@@ -42,7 +42,7 @@ class Monkeyruby
   # @param [String] text
   # @return [TrueClass]
   def type(text)
-    @file.write "device.type(#{text})\n"
+    @file.write "device.type(\"#{text}\")\n"
     true
   end
 
